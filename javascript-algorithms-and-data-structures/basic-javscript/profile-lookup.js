@@ -1,4 +1,3 @@
-
 // Setup
 const contacts = [
   {
@@ -28,9 +27,8 @@ const contacts = [
 ];
 
 function lookUpProfile(name, prop) {
-  let nameExists = null;
-  let propExists = null;
   let propValue = null;
+  let nameExists = null;
   for (let i = 0; i <= contacts.length - 1; i++) {
     const c = contacts[i];
     if (c.firstName === name) {
@@ -40,11 +38,7 @@ function lookUpProfile(name, prop) {
       }
     }
   }
-  return (
-    propValue ||
-    (!nameExists && "No such contact") ||
-    (!propExists && "No such property")
-  );
+  return (propValue || (!nameExists && "No such contact") || "No such property");
 }
 
 console.log(lookUpProfile("Kristian", "lastName"));
