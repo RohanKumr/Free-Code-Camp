@@ -1,0 +1,17 @@
+function largestOfFour(arr,  f = []) {
+  return !arr.length ? f : largestOfFour(arr.slice(1), f.concat(Math.max(...arr[0])))
+}
+
+console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+
+//array of largest number from each sub array using recursion
+//Output
+//[ 5, 27, 39, 1001 ]
+
+ // Working:
+ // if (array isnt empty) 
+ //    return concatenated array of largest numbers from each array
+ // else
+ //    run recursion on the function itself with operations
+ //    1) remove first sub array with each iteration
+ //    2) concatenate max value from first sub array to our array
