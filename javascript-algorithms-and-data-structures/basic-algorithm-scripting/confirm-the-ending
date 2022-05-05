@@ -1,0 +1,26 @@
+function confirmEnding(str, target, match=true) {
+  match = str.substring(str.length - 1) === target.substring(target.length - 1)
+  if(!match || target.length == 1) return match;
+  return confirmEnding(str.substring(0 , str.length - 1 ) , target.substring(0 , target.length - 1))
+}
+
+confirmEnding("He has to give me a new name", "name")
+
+/**
+ *  Recursive Procedure
+ *
+ *  Check if a string (first argument, str) ends with the given target string
+ *  Constraint: avoid using .endsWith()
+ * 
+ *  Working:
+ *  Loop through the strings in a descending order untill there is a mismatch
+ *  Conditions: 
+ *    1) Check if the last alphabets match 
+ *        match = A ===  B
+ *    1) if (the alphabets dont match OR exhausted target length)  
+ *          return match 
+ *    2) Run the same function again(
+ *        i.  remove the last alphabet from str
+ *        ii. remove the last alphabet from target
+ *      ) 
+ */
