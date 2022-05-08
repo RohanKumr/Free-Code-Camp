@@ -1,0 +1,7 @@
+function Bird(name) {
+  this.name = name;
+}
+
+typeof Bird.prototype;
+
+Object.prototype.isPrototypeOf(Bird.prototype);
