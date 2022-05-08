@@ -1,0 +1,29 @@
+/**
+ * @Question: Write a function that splits an array (first argument)
+ * into groups the length of size (second argument) and returns them 
+ * as a two-dimensional array.
+ */
+
+//Procedure used recursion
+function chunkArrayInGroups(arr, size, c=0, buffer = [] , a=[]) {
+  buffer.push(arr[0])
+  if (arr.length <= 1) {
+    a.push(buffer)
+    return a
+  }
+  if(c === size - 1){
+    a.push(buffer)
+    buffer=[];
+    c = 0
+  } else {
+    c++
+  }
+  return arr.shift(),chunkArrayInGroups(arr, size, c, buffer, a)
+}
+
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2));
+
+/**
+ * Output
+ * [ [ 0, 1 ], [ 2, 3 ], [ 4, 5 ] ]
+ */
