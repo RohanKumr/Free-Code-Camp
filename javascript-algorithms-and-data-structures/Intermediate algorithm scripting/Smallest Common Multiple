@@ -1,7 +1,5 @@
 function smallestCommons(arr) {
-  const sorted = arr.sort((a, b) => a - b )
-  const smol = sorted[0];
-  const big = sorted[1]
+  const [smol, big] = arr.sort((a, b) => a - b )
   let mult = big;
   
   const calcArr = () => {
