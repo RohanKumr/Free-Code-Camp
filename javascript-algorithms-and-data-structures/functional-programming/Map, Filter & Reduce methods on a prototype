@@ -1,0 +1,27 @@
+const s = [1, 2, 3, 4, 5];
+
+/** Implement the @map method on a prototype*/
+Array.prototype.myMap = function (callback) {
+  let arr = [];
+  this.forEach((val) => arr.push(callback(val)));
+  return arr;
+};
+/** Implement the @filter method on a prototype  */
+Array.prototype.myFilter = function (callback) {
+  let arr = [];
+  this.forEach((val) => callback(val) && arr.push(val));
+  return arr;
+};
+/** Implement the @reduce method on a prototype */
+Array.prototype.myReduce = function (callback, acc) {
+  let sum = acc == 0 ? acc : acc || this[0];
+  this.forEach((val, i) => (sum = callback(sum, this[i])));
+  return sum;
+};
+
+const map = s.myMap((val) => val + val);
+const filter = s.myFilter((val) => val % 2 === 0);
+const reduce = s.myReduce((sum, val) => [sum + val], []);
+console.log({ map });
+console.log({ filter });
+console.log({ reduce });
