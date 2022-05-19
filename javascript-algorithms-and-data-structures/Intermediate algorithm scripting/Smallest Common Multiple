@@ -1,0 +1,29 @@
+function smallestCommons(arr) {
+  const sorted = arr.sort((a, b) => a - b )
+  const smol = sorted[0];
+  const big = sorted[1]
+  let mult = big;
+  
+  const calcArr = () => {
+    const list =[]
+    for (let i = smol; i <= big ; i++){
+      list.push(i)
+    }
+    return list
+  }
+  
+  let between = calcArr();
+  let divisible = false;
+
+  while(true){
+    if(divisible) {
+      if(between.filter((val)=> mult % val === 0).length == between.length){
+        return mult
+      } 
+    }
+    mult += big;
+    if(mult % smol === 0 )  divisible = true 
+  }
+}
+
+console.log(smallestCommons([1,5]));
